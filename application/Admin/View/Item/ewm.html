@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> - {$title['item_name']} - 二维码  </title>
+        <link rel="stylesheet" href="__ROOT__/Public/admin/admin.css">
+        <style>
+        		a {
+                        text-decoration: none;
+                      }
+                      .brand {
+                          width: 100%;
+                          line-height: 30px;
+                          margin: 8px;
+                      }
+                      .brand a:hover {
+                        text-decoration: underline!important;
+                      }
+        </style>
+    </head>
+    	<center>
+            <!-- {$title['item_name']} - 二维码 -->
+           
+			<include file="Public:header"/>
+			 <div class="brand">
+		                 <a href="__APP__/Item/index.html" style="text-decoration: none; color: red;">项目管理</a> /  {$title['item_name']} - 二维码 
+		            </div> 
+			<br>
+			<form name="frm" method="post" enctype="multipart/form-data"  action="{:U('Item/ewmad',array('i'=>$i))}" onkeydown="if(event.keyCode==13)return false;">
+		      <table border="1" width="" align="center" cellspacing="0" cellpadding="8">
+		        <tr>
+				   <th width="200px">二维码</th>
+				</tr>
+		        <tr>
+		           <td>
+		           	 <if condition="$ewm!=false">
+		             	<img src="__ROOT__/Upload/ewm/{$ewm.ewm_add}" style="max-width: 200px;"/>
+		             <elseif condition="$ewm==false"/>
+		             	<input type="file"  name="ewm_add"/>
+		             </if>
+		           </td>
+		        </tr>
+		        <tr>
+		            <th colspan="2">
+		              <if condition="$ewm!=false">
+		               	<a href="__APP__/Item/ewmd/i/{$i}.html" onclick="if(confirm('确定删除该张二维码?')==false)return false;">修改</a>
+		              <elseif condition="$ewm==false"/>
+		                <input type="submit" value="上传"/>
+		              </if>
+		            </th>
+		        </tr>
+		      </table>
+			</form>
+			<br>
+			<a href="http://cli.im/url" target="_blank">二维码生成地址</a>
+		</center>
+    </body>
+</html>

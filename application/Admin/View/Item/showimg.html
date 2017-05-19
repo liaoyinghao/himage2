@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> {$onzero['title_count']} - 导航 图片操作</title>
+        <link rel="stylesheet" href="__ROOT__/Public/admin/admin.css">
+       <style type="text/css">
+       			*{
+       				margin: 0;
+       				padding: 0;
+       			}
+       			ul{
+       				width: 920px;
+       				margin: 0 auto;
+       				overflow: hidden;
+       			}
+       			li{
+       				float: left;
+       				margin-left: 1px;
+       				list-style: none;
+       			}
+       			#img{
+       				 width: 150px;height: 150px; border: 1px solid black;display: block;
+       			}
+       			p{
+       				width: 150px;height: 20px;border: 1px solid black;
+       			}
+       			#box{
+					width: 100%;
+					height: 100px;
+					
+				}
+				#box a{
+          text-align: center;
+					display: block;
+					width: 200px;
+					height: 100px;
+					margin: 0 auto;
+				}
+                      a {
+                        text-decoration: none;
+                      }
+                      .brand {
+                          width: 100%;
+                          background: #C6F2B3;
+                          line-height: 30px;
+                          margin: 8px;
+                      }
+                      .brand a:hover {
+                        text-decoration: underline;
+                      }
+       	</style>
+    </head>
+    	<center>
+    	      <!--   <font color="red">"{$onzero['item_name']}"项目&nbsp;"{$onzero['title_count']}"导航&nbsp;图片操作</font> -->
+            <div class="brand">
+                   <a href="__APP__/Item/index.html" style="color: red;" >"{$onzero['item_name']}"项目</a> / <a href="__APP__/Item/showtitle/item_id/{$v.item_id}.html" style="color: red;">"{$onzero['title_count']}"导航</a> /&nbsp;图片操作
+            </div>
+           
+    	        <br><br>
+				<ul>
+					<foreach name="showImg" item="v" key="k">
+  					<li>
+              <div id="img" style="background: url(__ROOT__{$v.img_add}) center no-repeat; background-size: cover"></div>
+  						<p><a href="__APP__/Item/deleteimg/img_id/{$v.img_id}.html" onclick="if(confirm('确定删除该图片?')==false)return false;">删除图片</a></p>
+  					</li>
+          </foreach>
+				</ul>
+    	</center>
+    	<div id="box">
+    		<a href="__APP__/Item/upimg/title_id/{$onzero['title_id']}.html">图片上传</a>
+    	</div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> 照片上传系统 - 照片上传页面 </title>
+        <webuploadercss />
+    </head>
+    	<center>
+			 <form action="{:U('Backstage/Index/action',array('i'=>$i))}" method="post">
+			 	<webuploader name="image" url="{:U('Backstage/Index/ajax_upload')}" word="或将照片拖到这里，单次最多可选300张"/> 
+			 	<input type="submit" value="提交">
+			 </form>
+		</center>
+    <webuploaderjs/>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> - HIMAGE - 后台管理 | 成员管理</title>
+        <link rel="stylesheet" href="__ROOT__/Public/admin/admin.css">
+    </head>
+    	<center>
+			<include file="Public:header"/>
+			<br>
+			<table border="1" width="700"  cellspacing="0" cellpadding="8" align="center" >
+			   <tr>
+			     <th width="100" height="20" >昵称</th>
+			     <th width="100">账户</th>
+			     <th width="100">密码</th>
+			     <th width="100">角色</th>
+			     <th width="100">操作</th>
+			   </tr>
+			   <volist name="user" id="v" key="k">
+			   <tr align="center">
+			     <td>{$v.user_name}</td>
+			     <td>{$v.user_account}</td>
+			     <td>{$v.user_pwd}</td>
+			     <td>{$v.user_typename}</td>
+			     <td>
+			     	<a href="__APP__/Member/modify/d/{$v.user_id}.html">修改</a>
+			     	<a href="__APP__/Member/del/d/{$v.user_id}.html" onclick="if(confirm('确定删除该成员?')==false)return false;">删除</a>
+			     </td>
+			   </tr>
+			   </volist>
+			    <tr>
+			    <td colspan="5" align="center"><a href="__APP__/Member/ad.html">添加成员</a></td>
+			   </tr>
+			   <tr>
+			    <td colspan="5" align="center">共计{$count}位成员</td>
+			   </tr>
+			</table>
+		</center>
+    </body>
+</html>

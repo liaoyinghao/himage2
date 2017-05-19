@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{$onzero['item_name']}-{$onzero['title_count']}-图片上传</title>
+         <webuploadercss />
+    </head>
+    	<center>
+    	        <font color="red">"{$onzero['item_name']}"项目&nbsp;"{$onzero['title_count']}"导航&nbsp;图片上传</font>
+                <br><br><br><br><br>
+    	        <form action="{:U('Admin/Item/action',array('img_tid'=>$onzero['title_id'],'img_iid'=>$onzero['item_id']))}" method="post">
+			 	<webuploader name="image" url="{:U('Admin/Item/ajax_upload')}" word="或将照片拖到这里，单次最多可选300张"/> 
+			 	<input type="submit" value="提交">
+			 </form>
+    	</center>
+        <webuploaderjs/>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> - HIMAGE - 项目列表</title>
+        <link rel="stylesheet" href="__ROOT__/Public/admin/admin.css">
+    </head>
+    	<center>
+			<include file="Public:header"/>
+			<br>
+			<table border="1" width="720"  cellspacing="0" cellpadding="8" align="center" >
+			   <tr>
+			     <th width="200" height="20" >项目名称</th>
+			     <th>banner图</th>
+			     <th>操作</th>
+			   </tr>
+			   <volist name="showitem" id="v" key="k">
+			   <tr align="center">
+			     <td>{$v.item_name}</td>
+			     <td><img src="__ROOT__/Upload/banner/{$v.item_banner_img}" style="max-width: 200px;"/></td>
+			     <td>
+			     	<a href="__APP__/Item/showtitle/item_id/{$v.item_id}.html">导航</a>
+			     	<a href="__APP__/Item/yt/item_id/{$v.item_id}.html">原图</a>
+			     	<a href="__APP__/Item/wx/i/{$v.item_id}.html">微信</a>
+			     	<a href="__APP__/Item/ewm/i/{$v.item_id}.html">二维码</a>
+			     	<a href="__APP__/Item/edit/item_id/{$v.item_id}.html">编辑</a>
+			     	<a href="__APP__/Item/delete/item_id/{$v.item_id}.html" onclick="if(confirm('确定删除该项目及其下所有内容?')==false)return false;">删除</a>
+			     </td>
+			   </tr>
+			   </volist>
+			    <tr>
+			    <td colspan="3" align="center"><a href="__APP__/Item/add.html">新建项目</a></td>
+			   </tr>
+			   <tr>
+			    <td colspan="3" align="center">共计{$item}个项目</td>
+			   </tr>
+			</table>
+		</center>
+    </body>
+	
+</html>

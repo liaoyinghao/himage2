@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> - {$title['item_name']} - 微信功能  </title>
+        <link rel="stylesheet" href="__ROOT__/Public/admin/admin.css">
+    </head>
+    	<center>
+            {$title['item_name']} - 微信功能  
+			<include file="Public:header"/>
+			<br>
+			<form name="frm" method="post" enctype="multipart/form-data"  action="{:U('Item/wxtj',array('i'=>$i))}">
+		      <table border="1" width="" align="center" cellspacing="0" cellpadding="8">
+		        <tr>
+				   <th colspan="2">微信功能</th>
+				</tr>
+		        <tr>
+		           <td width="120">标题</td>
+		           <td><input type="text" name="wx_title"/></td>
+		        </tr>
+		        <tr>
+		           <td width="120">简介</td>
+		           <td><input type="text" name="wx_desc"/></td>
+		        </tr>
+		        <tr>
+		           <td>图片</td>
+		           <td>
+						<input type="file"  name="wx_img"/>
+		           </td>
+		        </tr>
+		        <tr>
+		            <td width="120">首页Link</td>
+		            <td> 
+		            	<select name="wx_link">
+						  <option selected="selected" value="demo">请选择首页</option>
+						  <volist name="title" id="v" key="k">
+						   <option value="{$v.title_id}">{$v.title_count}</option>
+						  </volist>
+						</select>
+				    </td>
+		        </tr>
+		        <tr>
+		            <th colspan="2">
+		               <input type="submit" value="提交"/> 
+		            </th>
+		        </tr>
+		      </table>
+			</form>
+		</center>
+    </body>
+</html>

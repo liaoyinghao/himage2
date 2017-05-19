@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes" />
+		<title>Swisse中国</title>
+		<link rel="stylesheet" type="text/css" href="__ROOT__/public/home/css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="__ROOT__/public/home/css/index.css"/>
+	</head>
+	<body>
+		<div id="load">
+			<img src="__ROOT__/public/home/images/load/load.gif"/>
+		</div>
+		<div id="wrap-box">
+			<div id="box">
+				<div id="banner">
+					<!--<img src="__ROOT__/public/home/images/banner/1.jpg"/>-->
+					<p id="bg"></p>
+					<ul id="nav">
+						<li><a href="index.php?c=Index&a=index" style="color: #c6f3b4;">会场</a></li>
+						<li><a href="index.php?c=Index&a=sky">活动</a></li>
+					</ul>
+					<span style="display: block;">拼图</span><span style="display: none;">取消拼图</span>
+				</div>
+				<p></p>
+				<div id="content">
+					
+				</div>
+				<!-- <div id="content">
+					
+				</div> -->
+			</div>
+			<div id="show">
+				<p class="btn" style="background:url(__ROOT__/public/home/images/icon/x.png) no-repeat center;"></p>
+				<div class="swiper-container">
+			        <div class="swiper-wrapper">
+			        </div>
+			    </div>
+			</div>
+			<div id="sort-show">
+				<p class="btn" style="background:url(__ROOT__/public/home/images/icon/x.png) no-repeat center;"></p>
+				<div class="swiper-container">
+			        <div class="swiper-wrapper">
+			        </div>
+			    </div>
+			</div>
+			<div style="display: none">
+				<input type="text" id="tip" value="{$t}"></input>
+				<input type="text" id="iip" value="{$i}"></input>
+				<input type="text" id="im1" value="http://my.himage.com/Upload/image/2017-04-21/58f9acfe6fc57.jpg"></input>
+				<input type="text" id="im2" value="http://my.himage.com/Upload/image/2017-04-21/58f9ad347f6b3.jpg"></input>
+				<input type="text" id="im3" value="http://my.himage.com/Upload/image/2017-04-21/58f9ad34af076.jpg"></input>
+				<input type="text" id="contact" value="{$contact}"></input>
+			</div>
+			<footer>
+				<ul>
+					<li><a href="http://my.himage.com/index.php/Himage/index/i/8/t/32.html"><img src="__ROOT__/public/home/images/icon/home.png" style="margin-top: 0.15rem;"/></a></li>
+					<li><a href="http://my.himage.com/index.php/Himage/sort"><img src="__ROOT__/public/home/images/icon/image.png" style="margin-top: 0.15rem;"/></a></li>
+					<li><a href="{$contact}"><img src="__ROOT__/public/home/images/icon/at.png" style="margin-top: 0.15rem;"/></a></li>
+				</ul>
+			</footer>
+		</div>
+		<div id="pic">
+			<p class="btn" style="background:url(__ROOT__/public/home/images/icon/x.png) no-repeat center;"></p>
+		</div>
+		
+		<div id="pt">
+			开始拼图
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="__ROOT__/public/home/js/lazy.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__ROOT__/public/home/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__ROOT__/public/home/js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		load();
+	
+		function load(){
+//			$.ajax({
+//				type:"post",
+//				url:"__APP__/Himage/getPt",
+//				data: {0:$("#im1").val(), 
+//					   1:$("#im2").val(),
+//					   2:$("#im3").val()},
+//				success : function(data){
+//					alert(data);
+//				}
+//			});
+//			$.ajax({
+//				type:"post",
+//				url:"__APP__/Himage/getWe",
+//				data: {i:$("#iip").val(), 
+//						t:$("#tip").val()},
+//				success : function(data){
+//					alert(data);
+//				}
+//			});
+			
+			
+			$.ajax({
+				type:"post",
+				url:"__APP__/Himage/getBanner",
+				data: {i:$("#iip").val(), 
+						t:$("#tip").val()},
+				success : function(data){
+					var str=""
+					var oData=JSON.parse(data);
+					console.log(oData)
+					str="<img src='"+oData+"'/>"
+					$("#banner").append(str)
+				}
+			});
+//			$.ajax({
+//				type:"post",
+//				url:"__APP__/Himage/getTitle",
+//				data: {i:$("#iip").val(), 
+//						t:$("#tip").val()},
+//				success : function(data){
+//					alert(data);
+//				}
+//			});
+			$.ajax({
+				type:"post",
+				url:"__APP__/Himage/getImg",
+				data: {i:$("#iip").val(), 
+						t:$("#tip").val()},
+				success : function(data){
+					alert(data)
+				}
+			});
+		}
+		</script>
+	</body>
+</html>

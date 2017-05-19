@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> - {$showOne['item_name']} - 导航栏操作 </title>
+        <link rel="stylesheet" href="__ROOT__/Public/admin/admin.css">
+        <style>
+            .brand {
+                width: 100%;
+                background: #C6F2B3;
+                line-height: 30px;
+            }
+            .brand a:hover {
+                text-decoration: underline!important;
+            }
+        </style>
+    </head>
+    	<center>
+            <!-- <font color="red">"{$showOne['item_name']}"项目</font>  导航栏操作
+			<br><br> -->
+            <div class="brand">
+                 <a href="__APP__/Item/index.html" style="text-decoration: none; color: red;">项目管理</a> /  导航栏操作    
+            </div>
+            
+            <br><br>
+            <table border="1" width="" align="center" cellspacing="0" cellpadding="8">
+                <tr>
+                   <th width="160px">导航名称</th>
+                   <th width="160px">导航Link</th>
+                   <th width="200px">操&nbsp;&nbsp;作</th>
+                </tr>
+                    <volist name="showAll" id="v" key="k">
+                        <tr align="center">
+                            <td>
+                                {$v['title_count']}
+                            </td>
+                            <td>
+                                {$v['title_link']}
+                            </td>
+                            <td>
+                                <a href="__APP__/Item/showimg/titleid/{$v['title_id']}.html">查看图片</a>
+                                &nbsp;
+                                <a href="__APP__/Item/edittitle/titleid/{$v['title_id']}.html">编辑</a>
+                                &nbsp;
+                                <a href="__APP__/Item/deltitle/titleid/{$v['title_id']}.html" onclick="if(confirm('确定删除该导航及其下所有图片?')==false)return false;">删除</a>
+                            </td>
+                        </tr>
+                    </volist>
+                <tr>
+                    <th colspan="3" align="center" >
+                       <a href="__APP__/Item/addtitle/itemid/{$showOne['item_id']}.html">添加新导航</a>
+                    </th>
+                </tr>
+            </table>
+		</center>
+    </body>
+</html>
